@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source.lua'))()
 local Zlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImKuffuu/zlib/main/zlib.lua"))()
 
-local Key = "SUA_CHAVE_AQUI"
+local Key = "FF.FF"
 
 local function CheckKey()
     local Window = Rayfield:Load({
