@@ -1,0 +1,141 @@
+local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source.lua'))()
+local Zlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/ImKuffuu/zlib/main/zlib.lua"))()
+
+local Key = "SUA_CHAVE_AQUI"
+
+local function CheckKey()
+    local Window = Rayfield:Load({
+        Name = "Chave",
+        LoadingTitle = "Carregando...",
+        LoadingSubtitle = "Aguarde um momento",
+        ConfigurationSaving = {
+            Enabled = false,
+        },
+        Discord = {
+            Enabled = false,
+        },
+        KeySystem = false,
+    })
+
+    local Tab = Window:CreateTab("Chave")
+    local Section = Tab:AddSection("Insira a chave")
+
+    local KeyInput = Tab:AddInput({
+        Name = "Chave",
+        Placeholder = "Insira a chave",
+        Callback = function(Text)
+            if Text == Key then
+                Window:Destroy()
+                local MainWindow = Rayfield:Load({
+                    Name = "Brookhaven GUI",
+                    LoadingTitle = "Carregando...",
+                    LoadingSubtitle = "Aguarde um momento",
+                    ConfigurationSaving = {
+                        Enabled = false,
+                    },
+                    Discord = {
+                        Enabled = false,
+                    },
+                    KeySystem = false,
+                })
+
+                local Tab = MainWindow:CreateTab("Principal")
+                local Section = Tab:AddSection("Funções")
+
+                local Button = Tab:AddButton({
+                    Name = "Ativar GUI do Brookhaven",
+                    Callback = function()
+                        loadstring(game:HttpGet("https://raw.githubusercontent.com/Davi999z/Cartola-Hub/refs/heads/main/Brookhaven",true))()
+                    end,
+                })
+
+                local Button = Tab:AddButton({
+                    Name = "Fechar GUI",
+                    Callback = function()
+                        MainWindow:Destroy()
+                    end,
+                })
+
+                local Tab = MainWindow:CreateTab("Combat")
+                local Section = Tab:AddSection("Aim Bot e ESP")
+
+                local AimBotEnabled = false
+                local Button = Tab:AddButton({
+                    Name = "Aim Bot",
+                    Callback = function()
+                        if not AimBotEnabled then
+                            AimBotEnabled = true
+                            -- Código do Aim Bot aqui
+                            print("Aim Bot ativado")
+                        else
+                            AimBotEnabled = false
+                            -- Código para desativar o Aim Bot aqui
+                            print("Aim Bot desativado")
+                        end
+                    end,
+                })
+
+                local ESPEnabled = false
+                local Button = Tab:AddButton({
+                    Name = "ESP",
+                    Callback = function()
+                        if not ESPEnabled then
+                            ESPEnabled = true
+                            -- Código do ESP aqui
+                            print("ESP ativado")
+                        else
+                            ESPEnabled = false
+                            -- Código para desativar o ESP aqui
+                            print("ESP desativado")
+                        end
+                    end,
+                })
+
+                local FlyEnabled = false
+                local Button = Tab:AddButton({
+                    Name = "Fly",
+                    Callback = function()
+                        if not FlyEnabled then
+                            FlyEnabled = true
+                            -- Código do Fly aqui
+                            print("Fly ativado")
+                        else
+                            FlyEnabled = false
+                            -- Código para desativar o Fly aqui
+                            print("Fly desativado")
+                        end
+                    end,
+                })
+
+                local NoClipEnabled = false
+                local Button = Tab:AddButton({
+                    Name = "NoClip",
+                    Callback = function()
+                        if not NoClipEnabled then
+                            NoClipEnabled = true
+                            -- Código do NoClip aqui
+                            print("NoClip ativado")
+                        else
+                            NoClipEnabled = false
+                            -- Código para desativar o NoClip aqui
+                            print("NoClip desativado")
+                        end
+                    end,
+                })
+
+                local TeleportEnabled = false
+                local Button = Tab:AddButton({
+                    Name = "Teleportar",
+                    Callback = function()
+                        -- Código do Teleporte aqui
+                        print("Teleportando...")
+                    end,
+                })
+            else
+                print("Chave incorreta")
+            end
+        end,
+    })
+end
+
+CheckKey()
